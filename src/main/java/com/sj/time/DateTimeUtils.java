@@ -90,24 +90,6 @@ public class DateTimeUtils {
         return String.format(Locale.getDefault(), "%02d:%02d", hour, minute);
     }
 
-    static final String ISO_9601_DF = "yyyy-MM-dd'T'HH:mm:ss.SSSZZ";
-
-    public static String toISO8601(Date date) {
-        final DateFormat sdf_iso_8601 = new SimpleDateFormat(ISO_9601_DF, Locale.getDefault());
-        return sdf_iso_8601.format(date);
-    }
-
-    public static Date fromISO8601(String str) throws ParseException {
-        final DateFormat sdf_iso_8601 = new SimpleDateFormat(ISO_9601_DF, Locale.getDefault());
-        return sdf_iso_8601.parse(str);
-    }
-
-    public static boolean isSameDay(Date date1, Date date2) {
-        return date1.getYear() == date2.getYear()
-                && date1.getMonth() == date2.getMonth()
-                && date1.getDay() == date2.getDay();
-    }
-
     static public long getDayDate(Date date) {
         long timeInMillis = 0;
         Calendar calendar = Calendar.getInstance();

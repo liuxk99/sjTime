@@ -16,12 +16,13 @@ public class DateTest {
     @Test
     public void testcase_001() {
         Date now = new Date();
-        DumpUtils.dump(now);
+        TimeDump.dump(now);
 
         // Late
-        Date realCheckInDate = (Date) now.clone();
-        realCheckInDate.setHours(9);
-        realCheckInDate.setMinutes(35);
-        System.out.println("real check in date: " + realCheckInDate);
+        Date date = (Date) now.clone();
+        date.setHours(9);
+        date.setMinutes(35);
+        date.setSeconds(0);
+        TimeDump.dump(date);
     }
 }
