@@ -8,6 +8,7 @@ import org.junit.Test;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 
 public class DateUtilTest {
 
@@ -31,6 +32,9 @@ public class DateUtilTest {
         System.out.println(date2);
 
         Assert.assertEquals(date2, date1);
+
+        String strCanada = DateUtil.toISO8601(date1, Locale.CANADA);
+        System.out.println(strCanada);
     }
 
     @Test

@@ -25,4 +25,12 @@ public class DateTest {
         date.setSeconds(0);
         TimeDump.dump(date);
     }
+
+    @Test
+    public void testcase_TimeZone() {
+        Date now = new Date();
+        TimeDump.dump(now);
+
+        System.out.println("timezone: " + now.getTimezoneOffset());
+    }
 }
