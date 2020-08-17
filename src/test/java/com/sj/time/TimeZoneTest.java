@@ -2,8 +2,10 @@ package com.sj.time;
 
 import org.junit.Test;
 
+import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.TimeZone;
 
 public class TimeZoneTest {
@@ -78,7 +80,23 @@ public class TimeZoneTest {
 
         System.out.println("Non-DST size: " + ndstTimeZoneList.size());
         for (TimeZone tz: dstTimeZoneList) {
-            System.out.println(" " + tz);
+            System.out.println(" " + tz.getDisplayName(false, TimeZone.SHORT, Locale.getDefault()));
+        }
+    }
+
+    @Test
+    public void testcase_005() {
+        TimeZone timeZone = TimeZone.getDefault();
+        System.out.println(timeZone);
+
+        int offset = timeZone.getOffset(System.currentTimeMillis());
+        System.out.println("offset: " + offset);
+    }
+
+    @Test
+    public void testcase_ZoneIds() {
+        for (String zoneId: ZoneId.getAvailableZoneIds()) {
+            System.out.println(zoneId);
         }
     }
 }
