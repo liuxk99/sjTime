@@ -4,10 +4,17 @@ import org.junit.Test;
 
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Locale;
+import java.util.TimeZone;
 
 public class CalendarTest {
+    Calendar mCal = Calendar.getInstance();
+    Calendar mCalByUTC = Calendar.getInstance(TimeZone.getTimeZone("Etc/UTC"), Locale.getDefault());
+
     @org.junit.Before
     public void setUp() throws Exception {
+        System.out.println("now: " + mCal.getTime());
+        System.out.println("now(UTC): " + mCalByUTC.toInstant());
     }
 
     @org.junit.After
@@ -71,5 +78,9 @@ public class CalendarTest {
             System.out.println("day of week: " + dayOfWeek);
         }
         System.out.println("<- dumpDayOfWeek()");
+    }
+
+    @Test
+    public void testcase_TimeZones() {
     }
 }
