@@ -5,10 +5,12 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
+import java.util.TimeZone;
 
 public class DateUtilTest {
 
@@ -58,5 +60,38 @@ public class DateUtilTest {
         // Tomorrow
         Date tomorrow = DateUtil.tomorrow();
         System.out.println(tomorrow);
+    }
+
+    /**
+     * 传入Data类型日期，返回字符串类型时间（ISO8601标准时间）
+     * @param date
+     * @return
+     */
+    public static String getISO8601Timestamp(Date date){
+        TimeZone tz = TimeZone.getTimeZone("Asia/Shanghai");
+        DateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
+        df.setTimeZone(tz);
+        return df.format(date);
+    }
+
+    public static String toISO8601UTC(Date date) {
+        TimeZone tz = TimeZone.getTimeZone("UTC");
+        DateFormat df = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
+        df.setTimeZone(tz);
+        return df.format(date);
+    }
+
+    @Test
+    public void testcase_04_iso() {
+        String iso8601Str = getISO8601Timestamp(new Date());
+        System.out.println(iso8601Str);
+    }
+
+    @Test
+    public void testcase_05_iso_utc() {
+        Date myDate = new Date();
+        System.out.println(myDate);
+        String iso8601Str = toISO8601UTC(myDate);
+        System.out.println(iso8601Str);
     }
 }

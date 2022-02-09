@@ -113,7 +113,7 @@ public class DateUtil {
         return sdf.format(date) + SUFFIX_GMT;
     }
 
-    private static final String ISO_8601_DF = "yyyy-MM-dd'T'HH:mm:ss.SSSZZ";
+    private static final String ISO_8601_DF = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'";
 
     public static String toISO8601(Date date) {
         return toISO8601(date, Locale.getDefault());

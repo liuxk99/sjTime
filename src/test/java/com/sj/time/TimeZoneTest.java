@@ -21,6 +21,8 @@ public class TimeZoneTest {
     public void testcase_001() {
         TimeZone timeZone = TimeZone.getDefault();
         System.out.println(timeZone);
+        System.out.println("id: " + timeZone.getID());
+        System.out.println("displayName: " + timeZone.getDisplayName());
     }
 
     @Test
