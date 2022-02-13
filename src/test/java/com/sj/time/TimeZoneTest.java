@@ -89,7 +89,7 @@ public class TimeZoneTest {
     @Test
     public void testcase_005() {
         TimeZone timeZone = TimeZone.getDefault();
-        System.out.println(timeZone);
+        System.out.println("id: "+ timeZone.getID());
 
         int offset = timeZone.getOffset(System.currentTimeMillis());
         System.out.println("offset: " + offset);
