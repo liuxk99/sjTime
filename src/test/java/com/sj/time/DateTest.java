@@ -57,14 +57,14 @@ public class DateTest {
     }
 
     @Test
-    public void testcase_003() {
-        final Date now = new Date(System.currentTimeMillis());
-        TimeDump.dump(now);
+    public void testcase_currentTimeMillis_01() {
+        long currentTime = System.currentTimeMillis();
+        System.out.println("currentTime: " + currentTime + "(ms)");
     }
 
     @Test
-    public void testcase_004() {
-        long currentTime = System.currentTimeMillis();
-        System.out.println("currentTime: " + currentTime + " milliseconds");
+    public void testcase_currentTimeMillis_02() {
+        final Date now = new Date(System.currentTimeMillis());
+        TimeDump.dump(now);
     }
 }
